@@ -1,1 +1,1 @@
-export const serverUrl = "https://2035-2409-4070-4797-bd7d-898e-f463-6bf3-26a4.ngrok.io"
+export const serverUrl = "https://reactnativeblogapp1910.herokuapp.com"
