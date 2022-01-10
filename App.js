@@ -1,20 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import Routes from './components/Routes';
+import AuthContextProvider from './context/AuthContext';
+import BlogContextProvider from './context/BlogContext';
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <AuthContextProvider>
+      <BlogContextProvider>
+        <Routes/>
+      </BlogContextProvider>
+    </AuthContextProvider>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
