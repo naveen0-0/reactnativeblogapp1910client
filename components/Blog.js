@@ -1,27 +1,28 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 
-const Blog = ({ blog }) => {
+const Blog = ({ blog, onPress }) => {
   return (
-    <View style={styles.blogs}>
-      <Text style={styles.title}> {blog.title} </Text>
-      <Text style={styles.body}> {blog.body} </Text>
-    </View>
+    <TouchableOpacity style={styles.blogs} activeOpacity={0.5} onPress={onPress}>
+      <Text style={styles.title} numberOfLines={1}> {blog.title} </Text>
+      <Text style={styles.body} numberOfLines={2}> {blog.body} </Text>
+    </TouchableOpacity>
   )
 }
 
 
 const styles = StyleSheet.create({
   blogs : {
-    width:"95%",
+    marginHorizontal:10,
     borderWidth:1,
     borderColor:"#000",
     borderRadius:5,
     marginVertical:10,
-    padding: 10
+    padding: 10,
   },
   title:{
-
+    fontWeight:"700",
+    fontSize:20
   },
   body:{}
 })

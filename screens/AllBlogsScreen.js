@@ -13,14 +13,16 @@ export default function AllBlogsScreen({ navigation }) {
     getAllBlogs(setLoading)
   },[])
 
-  const renderItem = ({ item }) => <Blog blog={item} />
+  const navigateToBlogDetails = (item) => navigation.navigate('BlogDetail',{ blog : item })
+
+  const renderItem = ({ item }) => <Blog blog={item} onPress={() => navigateToBlogDetails(item)}/>
 
   if(loading) return <View style={styles.loadingContainer}>
     <ActivityIndicator size={50} color="crimson" />
   </View>
 
   return (
-      <View style={styles.container}>
+      <View style={styles.main}>
 
         <View>
           <Text style={styles.title}>Blogs</Text>
@@ -31,10 +33,11 @@ export default function AllBlogsScreen({ navigation }) {
             data={blog.allBlogs}
             renderItem={renderItem}
             keyExtractor={item => item._id}
+            showsVerticalScrollIndicator={false}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ paddingBottom: 120 }}
           />
         </View>
-
-
 
         <TouchableOpacity style={styles.add} onPress={() => navigation.navigate('NewBlog')}>
           <Ionicons name='add' size={26} color="#fff"/>
@@ -46,12 +49,6 @@ export default function AllBlogsScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container:{
-    position: 'relative',
-    minHeight:"100%",
-  },
-  innercontainer:{
-  },
   loadingContainer:{
     display: 'flex',
     justifyContent:"center",
@@ -78,10 +75,4 @@ const styles = StyleSheet.create({
     color: "#eee",
     paddingVertical:10,
   },
-  flatlistcontainer : {
-    width: "100%",
-    display: 'flex',
-    justifyContent:"center",
-    alignItems:"center",
-  }
 })

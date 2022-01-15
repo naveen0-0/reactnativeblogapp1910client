@@ -13,22 +13,19 @@ const Profile = () => {
       authDispatch({ type : "LOGOUT" })
     })
   }
-  const LogoutTest = () => {
-    console.log("test");
-  }
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <Text>Profile</Text>
-      <View style={styles.btn}>
-        <FlatButton onPress={Logout}>Logout</FlatButton>
-      </View>
-    </ScrollView>
+      <FlatButton onPress={Logout}/>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
-
+  container:{
+    minHeight:"100%",
+  }
 })
 
 export default Profile

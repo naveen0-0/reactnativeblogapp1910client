@@ -1,12 +1,11 @@
 import React from 'react'
-import { Text, TouchableOpacity, StyleSheet, View } from 'react-native'
+import { View, TouchableOpacity, StyleSheet } from 'react-native'
 import { Ionicons } from "@expo/vector-icons";
 
-const FlatButton = ({ children, onPress }) => {
+const FlatButton = ({ onPress }) => {
   return (
-    <View style={styles.container}>
+    <View style={styles.btncontainer}>
       <TouchableOpacity onPress={onPress} style={styles.btn}>
-        <Text style={styles.btntext}>{children}</Text> 
         <Ionicons size={24} name='log-out'color="#ddd"/>
       </TouchableOpacity>
     </View>
@@ -14,27 +13,28 @@ const FlatButton = ({ children, onPress }) => {
 }
 
 const styles = StyleSheet.create({
-  container:{
+
+  btncontainer:{
     display: 'flex',
-    flexDirection:"row",
     justifyContent:"center",
     alignItems:"center",
+    position: 'absolute',
+    bottom: 0,
+    right: 0
   },
+  
   btn : {
     backgroundColor:"crimson",
     borderRadius:5,
     padding: 10,
+    marginHorizontal:5,
+    marginVertical:5,
+    
     display: 'flex',
-    flexDirection:"row",
     justifyContent:"center",
     alignItems:"center",
-  },
-  btntext:{
-    color: "#ccc",
-    textAlign:"center",
-    fontSize:20,
-    paddingRight:10,
-    fontWeight:"700"
+    width: "90%"
+
   }
 })
 
